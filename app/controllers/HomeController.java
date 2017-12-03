@@ -1,0 +1,130 @@
+package controllers;
+
+import play.mvc.*;
+import play.libs.Json;
+import views.*;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
+import java.io.File;
+
+import classifier.WekaClassifier;
+
+public class HomeController extends Controller {
+
+    private static final String MODEL = "public/models/sms.dat";
+    private WekaClassifier classifier;
+    private boolean trained;
+
+    HomeController() {
+        //flag to check whether classifier trained or not
+        trained = false;
+
+        //initialize Classifier object
+        classifier = new WekaClassifier();
+    }
+
+    /**
+     * displays list of avilable endpoints
+     */
+    public Result index(){
+    	return ok(views.html.index.render());
+    }
+
+
+    /**
+     * calls transform,fit then stores the model
+     */
+    public Result train() {
+        Map<String, String> result = new HashMap<>();
+        try{
+            classifier.transform();
+            classifier.fit();
+            trained = true;
+            classifier.saveModel(MODEL);
+            result.put("status", "success");
+            return ok(Json.toJson(result));
+        } catch (RuntimeException e){
+            result.put("status", "error");
+            result.put("message",e.getMessage());
+        }
+        catch (IOException e){
+            result.put("status", "error");
+            result.put("message","Couldn't save Model file.");
+        }
+        return internalServerError(Json.toJson(result));
+    }
+
+
+    /**
+     * calls evaluation method and display result
+     */
+    public Result evaluate() {
+        Map<String, String> result = new HashMap<>();
+        try{
+            if(!trained &&  !new File(MODEL).exists())
+            {
+                throw new RuntimeException("Train model before evaluating.");
+
+            }else if(!trained && new File(MODEL).exists() )
+            {
+                classifier.loadModel(MODEL);
+            }
+
+            return ok(classifier.evaluate());
+
+        } catch (RuntimeException e){
+            result.put("status","error");
+            result.put("message",e.getMessage());
+        }catch (ClassNotFoundException e){
+            result.put("status", "error");
+            result.put("message","Invalid Model.");
+        } catch (IOException e){
+            result.put("status", "error");
+            result.put("message","Couldn't open saved Model file.");
+        }
+        return internalServerError(Json.toJson(result));
+    }
+
+    /**
+     * calls predict function
+     */
+    public Result predict(String message) {
+
+
+        Map<String, String> result = new HashMap<>();
+        try{
+            //String message = Controller.request().queryString().get("message")[0];
+
+            if (new File(MODEL).exists()) {
+                classifier.loadModel(MODEL);
+            } else {
+                classifier.transform();
+                classifier.fit();
+                classifier.saveModel(MODEL);
+            }
+            result.put("status", "success");
+            result.put("message", message);
+            result.put("label", classifier.predict(message));
+            return ok(Json.toJson(result));
+        }
+        catch (ClassNotFoundException e){
+            result.put("status", "error");
+            result.put("message","Invalid Model.");
+        }
+        catch (IOException e){
+            result.put("status", "error");
+            result.put("message","Couldn't open saved Model file.");
+        }
+        catch (NullPointerException e) {
+            result.put("status", "error");
+            result.put("message", "missing query string message");
+        }
+        catch (RuntimeException e){
+            result.put("status", "error");
+            result.put("message", e.getMessage());
+        }
+        return internalServerError(Json.toJson(result));
+    }
+}

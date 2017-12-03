@@ -1,0 +1,37 @@
+2017-12-03 01:10:19,808 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-4 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-12-03 01:10:19,916 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev)
+2017-12-03 01:10:24,473 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-4 - Value not defined for given nominal attribute!
+2017-12-03 01:13:35,027 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-2 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-12-03 01:13:35,047 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-2 - Application started (Dev)
+2017-12-03 01:19:12,354 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-15 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-12-03 01:19:12,426 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-15 - Application started (Dev)
+2017-12-03 01:19:22,292 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-15 - 0.0
+2017-12-03 01:19:54,131 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-9 - 0.0
+2017-12-03 01:20:16,114 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-18 - 0.0
+2017-12-03 01:20:32,991 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-15 - 0.0
+2017-12-03 01:20:49,710 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-14 - 0.0
+2017-12-03 01:21:11,748 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-21 - 0.0
+2017-12-03 01:21:34,064 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-24 - 1.0
+2017-12-03 01:21:54,337 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-24 - 0.0
+2017-12-03 01:22:15,326 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-20 - 0.0
+2017-12-03 01:22:32,535 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-21 - 0.0
+2017-12-03 01:22:52,152 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-15 - 0.0
+2017-12-03 01:23:09,936 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-26 - 0.0
+2017-12-03 01:23:26,393 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-21 - 1.0
+2017-12-03 01:23:46,901 [WARN] from weka in play-dev-mode-akka.actor.default-dispatcher-21 - 0.0
+2017-12-03 01:33:43,338 [INFO] from play.core.server.AkkaHttpServer in pool-7-thread-5 - Stopping server...

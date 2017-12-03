@@ -1,0 +1,5 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\samir\Desktop\3rd sem\Social Computing\termproject\play\social\conf\routes:10:1: missing argument list for method predict in class HomeController[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `predict _` or `predict(_)` instead of `predict`.[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /predict                           controllers.HomeController.predict[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
