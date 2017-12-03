@@ -196,7 +196,7 @@ public class WekaClassifier {
 
             Evaluation eval = new Evaluation(testData);
             eval.evaluateModel(classifier, testData);
-            return eval.toSummaryString();
+            return eval.toSummaryString() +"\n"+ eval.toMatrixString();
         } catch (IOException e) {
             LOGGER.warn(e.getMessage());
             throw new RuntimeException("TestData not avilable!");
