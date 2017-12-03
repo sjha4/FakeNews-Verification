@@ -115,8 +115,8 @@ public class WekaClassifier {
 
             //add ngram tokenizer to filter with min and max length set to 1
             NGramTokenizer tokenizer = new NGramTokenizer();
-            tokenizer.setNGramMinSize(3);
-            tokenizer.setNGramMaxSize(3);
+            tokenizer.setNGramMinSize(4);
+            tokenizer.setNGramMaxSize(5);
             //use word delimeter
             tokenizer.setDelimiters("\\W");
             filter.setTokenizer(tokenizer);
@@ -196,7 +196,7 @@ public class WekaClassifier {
 
             Evaluation eval = new Evaluation(testData);
             eval.evaluateModel(classifier, testData);
-            return eval.toSummaryString() +"\n"+ eval.toMatrixString();
+            return eval.toSummaryString();
         } catch (IOException e) {
             LOGGER.warn(e.getMessage());
             throw new RuntimeException("TestData not avilable!");
