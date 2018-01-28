@@ -8,8 +8,6 @@ import play.Logger;
 import play.Logger.ALogger;
 
 import weka.classifiers.Evaluation;
-import weka.classifiers.bayes.NaiveBayes;
-import weka.classifiers.bayes.NaiveBayesMultinomial;
 import weka.classifiers.bayes.NaiveBayesMultinomialText;
 import weka.classifiers.meta.FilteredClassifier;
 import weka.core.Attribute;
