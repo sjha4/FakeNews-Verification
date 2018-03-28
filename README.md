@@ -1,4 +1,4 @@
-# Ride the (REAL) trendy wave!
+# Ride the (REAL) trendy wave!!
 
 [The platform is live here](https://socialnewsverifier.herokuapp.com/)
 * Log in using Facebook
